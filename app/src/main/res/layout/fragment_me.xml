@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<LinearLayout
+    android:orientation="vertical"
+    android:background="#ff4400"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+  <!--  <android.support.v4.widget.CircleImageView
+        android:id="@+id/civ_me_icon"
+        app:border="true"
+        app:border_color="#16f5f5f5"
+        app:border_width="6dp"
+        app:selector="true"
+        app:selector_color="#4D000000"
+        app:selector_stroke_color="#16f5f5f5"
+        app:selector_stroke_width="6dp"
+        app:shadow="false"
+        android:src="@mipmap/user_ico"
+        android:layout_width="120dp"
+        android:layout_height="120dp"/>-->
+
+    <ImageView
+        android:src="@mipmap/user_ico"
+        android:layout_width="120dp"
+        android:layout_height="120dp" />
+    <TextView
+        android:id="@+id/tv_login_or_register"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffffff"
+        android:text="登录|注册"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+<LinearLayout
+    android:background="#dddddd"
+    android:orientation="vertical"
+    android:layout_weight="1"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
+    <TextView
+        android:layout_marginTop="10px"
+        android:background="#ffffff"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:text="个人信息"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <TextView
+        android:drawableRight="@mipmap/item_go_one"
+        android:layout_marginTop="10px"
+        android:background="#ffffff"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:text="我的商品"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <TextView
+        android:layout_marginTop="10px"
+        android:background="#ffffff"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:text="上传商品"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+</LinearLayout>
+</LinearLayout>
+
