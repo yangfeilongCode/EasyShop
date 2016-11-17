@@ -45,16 +45,19 @@
     android:layout_width="match_parent"
     android:layout_height="0dp">
     <TextView
+        android:id="@+id/tv_user_info"
         android:layout_marginTop="10px"
         android:background="#ffffff"
         android:paddingLeft="20dp"
+        android:drawableRight="@drawable/selector_go"
         android:gravity="center_vertical"
         android:textSize="20sp"
         android:text="个人信息"
         android:layout_width="match_parent"
         android:layout_height="60dp" />
     <TextView
-        android:drawableRight="@mipmap/item_go_one"
+        android:id="@+id/tv_user_shop"
+        android:drawableRight="@drawable/selector_go"
         android:layout_marginTop="10px"
         android:background="#ffffff"
         android:paddingLeft="20dp"
@@ -64,9 +67,11 @@
         android:layout_width="match_parent"
         android:layout_height="60dp" />
     <TextView
+        android:id="@+id/tv_go_shop"
         android:layout_marginTop="10px"
         android:background="#ffffff"
         android:paddingLeft="20dp"
+        android:drawableRight="@drawable/selector_go"
         android:gravity="center_vertical"
         android:textSize="20sp"
         android:text="上传商品"
