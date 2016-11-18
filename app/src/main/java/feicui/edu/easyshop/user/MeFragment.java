@@ -57,7 +57,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(activity,LoginActivity.class));
                 break;
             case R.id.civ_me_icon:
-                startActivity(new Intent(activity,LoginActivity.class));
+                startActivity(new Intent(activity,MeDetailtActivity.class));
                 break;
             case R.id.tv_user_info:
                 startActivity(new Intent(activity,LoginActivity.class));

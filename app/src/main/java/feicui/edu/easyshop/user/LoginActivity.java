@@ -81,7 +81,7 @@ public class LoginActivity extends Activity implements View.OnClickListener, Tex
                 break;
             case R.id.tv_go_register:
                 startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
-
+                break;
             default:
                 Toast.makeText(this,"点击错误",Toast.LENGTH_SHORT).show();
                 break;

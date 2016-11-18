@@ -72,7 +72,7 @@ public class RegisterActivity extends Activity implements TextWatcher, View.OnCl
                 }else {
                     Toast.makeText(this,"输入的格式不正确",Toast.LENGTH_SHORT).show();
                 }
-
+                break;
         }
 
     }

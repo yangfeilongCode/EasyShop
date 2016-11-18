@@ -112,20 +112,6 @@ public void init(){
         mViewPager.setCurrentItem((Integer) view.getTag(),false);
         mTvTitle.setText(textViews[(Integer) view.getTag()].getText());
 
- //       switch (view.getId()){
-//            case R.id.tv_main_shop:
-//                break;
-//            case R.id.tv_main_message:
-//
-//                break;
-//            case R.id.tv_main_mail:
-//
-//                break;
-//            case R.id.tv_main_my:
-//
-//                break;
-//        }
-
     }
 
 private boolean isExit=false;  //退出默认值

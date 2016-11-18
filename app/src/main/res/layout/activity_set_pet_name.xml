@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:background="#ff4400"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+    <LinearLayout
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:id="@+id/et_set_pet_name"
+            android:background="@mipmap/edit_bg_long"
+            android:textSize="20sp"
+            android:hint="昵称"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <TextView
+            android:gravity="center_vertical"
+            android:text="1.通过昵称添加好友，没有昵称无法添加好友"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <TextView
+            android:gravity="center_vertical"
+            android:text="2.此昵称非用户名，再联系人和市场等场景显示"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <TextView
+            android:gravity="center_vertical"
+            android:text="昵称为中文、字母或数字，长度为1--12，一个中文算两个长度"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <Button
+            android:id="@+id/btn_ok_name"
+            android:layout_gravity="center"
+            android:background="#ff4400"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:text="确定"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>
