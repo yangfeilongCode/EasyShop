@@ -26,6 +26,7 @@
         android:layout_height="120dp"/>-->
 
     <ImageView
+        android:id="@+id/civ_me_icon"
         android:src="@mipmap/user_ico"
         android:layout_width="120dp"
         android:layout_height="120dp" />
