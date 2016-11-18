@@ -49,6 +49,7 @@
         android:textSize="20sp"
         android:textColor="#ffffff"
         android:text="注册"
+        android:background="@drawable/btn_selecter"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="50dp" />
 </LinearLayout>
