@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
+ * 没有登录页面
  * Created by Administrator on 2016/11/16.
  */
 

@@ -3,9 +3,17 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
-        android:background="#ff4400"
+        android:background="#ff3300"
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp">
+        <TextView
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:text="设置昵称"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:padding="20dp"
         android:orientation="vertical"
@@ -32,14 +40,14 @@
             android:gravity="center_vertical"
             android:text="昵称为中文、字母或数字，长度为1--12，一个中文算两个长度"
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="80dp" />
         <Button
             android:id="@+id/btn_ok_name"
             android:layout_gravity="center"
-            android:background="#ff4400"
+            android:background="#ff5500"
             android:textColor="#ffffff"
             android:textSize="20sp"
-            android:text="确定"
+            android:text="确 定"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

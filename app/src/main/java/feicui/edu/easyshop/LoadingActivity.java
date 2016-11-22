@@ -10,6 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
+ * 引导页
  * Created by Administrator on 2016/11/16.
  */
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="feicui.edu.easyshop">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -20,8 +21,8 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".user.LoginActivity"/>
-        <activity android:name=".user.RegisterActivity"/>
+        <activity android:name=".user.login.LoginActivity"/>
+        <activity android:name=".user.register.RegisterActivity"/>
         <activity android:name=".user.MeDetailtActivity"/>
         <activity android:name=".user.SetPetNameActivity"/>
     </application>

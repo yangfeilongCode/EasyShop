@@ -1,26 +1,36 @@
-package feicui.edu.easyshop.user;
+package feicui.edu.easyshop.user.register;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import java.io.IOException;
+
 import feicui.edu.easyshop.R;
+import feicui.edu.easyshop.network.EasyShopClient;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
+ * 注册
  * Created by Administrator on 2016/11/17.
  */
 
 public class RegisterActivity extends Activity implements TextWatcher, View.OnClickListener {
 
-    private EditText mETUserName;
-    private EditText mETPassword;
-    private EditText mETPass;
-    private Button mBtnLogin;
+    private EditText mETUserName; //用户名
+    private EditText mETPassword;//密码
+    private EditText mETPass;//确认密码
+    private Button mBtnLogin; //注册按钮
     private String user;
     private String password;
     private String pass;
@@ -54,7 +64,7 @@ public class RegisterActivity extends Activity implements TextWatcher, View.OnCl
     @Override
     public void afterTextChanged(Editable editable) {
         boolean canLogin=!(mETUserName.length()==0||mETPassword.length()==0||mETPass.length()==0);
-        mBtnLogin.setEnabled(canLogin);
+        mBtnLogin.setEnabled(canLogin); //激活按钮
         mBtnLogin.setSelected(canLogin);
     }
 
@@ -68,12 +78,48 @@ public class RegisterActivity extends Activity implements TextWatcher, View.OnCl
 
                 if ((user.length()>3&&user.length()<10)&&(password.length()>5&&password.length()<15)&&
                         (password.equals(pass))){
-                    Toast.makeText(this,"执行",Toast.LENGTH_SHORT).show();
+                    register();
+
                 }else {
                     Toast.makeText(this,"输入的格式不正确",Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
 
+    }
+
+    /**
+     * 注册方法
+     */
+    public void register(){
+
+        Call call= EasyShopClient.getInstance().register_dom(user,password);
+
+        call.enqueue(new Callback() {
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Toast.makeText(RegisterActivity.this,"注册失败",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+                    //拿到json字符串
+                    String json = response.body().string();
+                    Log.e("aaaaaaaaaa", "json== "+json );
+                    Results results = new Gson().fromJson(json, Results.class);
+
+                    if (results.getCode() == 1) { //判断成功的情况
+
+                        Log.e("aaaaaaaaaa", "results=" + results.toString());
+                        Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.e("aaaaaaaaaa", "response.code==: " + response.code());
+                        Toast.makeText(RegisterActivity.this, "response.code=: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+        });
     }
 }

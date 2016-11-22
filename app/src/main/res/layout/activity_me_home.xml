@@ -2,7 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:background="#ff3300"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"></android.support.v7.widget.Toolbar>
     <LinearLayout
+        android:id="@+id/ll_me_home_top"
         android:orientation="vertical"
         android:background="#ff4400"
         android:gravity="center"
@@ -38,9 +43,9 @@
         android:layout_height="0dp">
         <LinearLayout
             android:id="@+id/ll_user_name"
-            android:paddingRight="20dp"
+            android:paddingRight="10dp"
             android:paddingLeft="20dp"
-            android:layout_marginTop="10px"
+            android:layout_marginTop="5px"
             android:gravity="center_vertical"
             android:background="#ffffff"
             android:orientation="horizontal"
@@ -66,9 +71,9 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/ll_pet_name"
-            android:paddingRight="20dp"
+            android:paddingRight="10dp"
             android:paddingLeft="20dp"
-            android:layout_marginTop="10px"
+            android:layout_marginTop="5px"
             android:gravity="center_vertical"
             android:background="#ffffff"
             android:orientation="horizontal"
@@ -94,9 +99,9 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/ll_ring_letter"
-            android:paddingRight="20dp"
+            android:paddingRight="10dp"
             android:paddingLeft="20dp"
-            android:layout_marginTop="10px"
+            android:layout_marginTop="5px"
             android:gravity="center_vertical"
             android:background="#ffffff"
             android:orientation="horizontal"
@@ -121,10 +126,10 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <Button
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="83dp"
             android:layout_gravity="bottom"
             android:id="@+id/btn_quit"
-            android:background="#ff4400"
+            android:background="#ff5500"
             android:textSize="20sp"
             android:textColor="#ffffff"
             android:text="退出登录"

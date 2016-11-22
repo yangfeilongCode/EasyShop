@@ -1,9 +1,7 @@
 package feicui.edu.easyshop.user;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,8 +12,10 @@ import android.widget.TextView;
 
 import feicui.edu.easyshop.MainActivity;
 import feicui.edu.easyshop.R;
+import feicui.edu.easyshop.user.login.LoginActivity;
 
 /**
+ * 我的界面
  * Created by Administrator on 2016/11/16.
  */
 

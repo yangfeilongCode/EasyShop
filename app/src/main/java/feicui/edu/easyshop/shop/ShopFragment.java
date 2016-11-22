@@ -15,7 +15,7 @@ import feicui.edu.easyshop.R;
  */
 
 public class ShopFragment extends Fragment {
-    MainActivity activity;
+
     public ShopFragment(){
 
 
