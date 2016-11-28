@@ -1,10 +1,18 @@
 package feicui.edu.easyshop.network;
 
+import com.google.gson.Gson;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+
+import feicui.edu.easyshop.user.model.Data;
+import feicui.edu.easyshop.user.model.NativeCache;
 import okhttp3.Call;
 import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -20,6 +28,8 @@ public class EasyShopClient {
 
     private OkHttpClient okHttpClient;
 
+    private Gson gson;
+
     public EasyShopClient(){
         HttpLoggingInterceptor interceptor=new HttpLoggingInterceptor(); //日志拦截
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);  //拦截等级
@@ -28,6 +38,7 @@ public class EasyShopClient {
                 .addInterceptor(interceptor)//日志拦截
                 .build();
 
+        gson=new Gson();
     }
 
     public static EasyShopClient getInstance(){
@@ -103,6 +114,46 @@ public class EasyShopClient {
         //构建请求
         Request request=new Request.Builder()
                 .url(EasyShopApi_Demo.LOGIN)
+                .post(body)
+                .build();
+
+        return okHttpClient.newCall(request);
+    }
+
+    /**
+     * 数据更新
+     * @param data
+     * @return
+     */
+    public Call upData_dom(Data data){
+
+        RequestBody body=new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("data",gson.toJson(data))
+                .build();
+
+        Request request=new Request.Builder()
+                .url(EasyShopApi_Demo.UPDATA)
+                .post(body)
+                .build();
+        return okHttpClient.newCall(request);
+    }
+
+    /**
+     * 更新图片文件
+     * @param file
+     * @return
+     */
+    public Call uploadAvatar(File file){
+
+        RequestBody body=new MultipartBody.Builder()
+                .addFormDataPart("data", gson.toJson(NativeCache.getData()))
+                .addFormDataPart("image",file.getName(),
+                        RequestBody.create(MediaType.parse("image/png"),file))
+                .build();
+
+        Request request=new Request.Builder()
+                .url(EasyShopApi_Demo.UPDATA)
                 .post(body)
                 .build();
 

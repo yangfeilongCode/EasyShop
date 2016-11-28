@@ -18,8 +18,6 @@ public class ShopFragment extends Fragment {
 
     public ShopFragment(){
 
-
-
     }
 
     @Nullable

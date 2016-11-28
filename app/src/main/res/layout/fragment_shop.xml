@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff" />
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
     <TextView
+        android:visibility="gone"
         android:gravity="center"
         android:textSize="35sp"
-        android:text="市场信息"
+        android:text="加载失败"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

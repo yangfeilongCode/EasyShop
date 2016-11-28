@@ -5,7 +5,15 @@
     <android.support.v7.widget.Toolbar
         android:background="#ff3300"
         android:layout_width="match_parent"
-        android:layout_height="50dp"></android.support.v7.widget.Toolbar>
+        android:layout_height="50dp">
+        <TextView
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:text="我的详情"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:id="@+id/ll_me_home_top"
         android:orientation="vertical"
@@ -60,9 +68,12 @@
             <TextView
                 android:id="@+id/tv_uesr_name_a"
                 android:layout_marginRight="20dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:maxEms="8"
                 android:textSize="20sp"
                 android:text="USER_NAME"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content" />
             <ImageView
                 android:background="@drawable/selector_go"
@@ -88,9 +99,12 @@
             <TextView
                 android:id="@+id/tv_pet_name_a"
                 android:layout_marginRight="20dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:maxEms="8"
                 android:textSize="20sp"
                 android:text="PET_NAME"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content" />
             <ImageView
                 android:background="@drawable/selector_go"
@@ -116,9 +130,12 @@
             <TextView
                 android:id="@+id/tv_ring_letter"
                 android:layout_marginRight="20dp"
+                android:maxLines="1"
+                android:maxEms="8"
+                android:ellipsize="end"
                 android:textSize="20sp"
                 android:text="RING_LETTER"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content" />
             <ImageView
                 android:background="@drawable/selector_go"

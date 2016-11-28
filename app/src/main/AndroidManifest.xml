@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="feicui.edu.easyshop">
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
+        android:name=".EasyShopApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <!--加载页面-->
         <activity android:name=".LoadingActivity">
             <intent-filter>
@@ -21,10 +24,14 @@
         <activity android:name=".MainActivity">
 
         </activity>
+        <!--登录界面-->
         <activity android:name=".user.login.LoginActivity"/>
+        <!--注册界面-->
         <activity android:name=".user.register.RegisterActivity"/>
-        <activity android:name=".user.MeDetailtActivity"/>
-        <activity android:name=".user.SetPetNameActivity"/>
+        <!--我的详情界面-->
+        <activity android:name=".user.me.MeDetailtActivity"/>
+        <!--设置昵称界面-->
+        <activity android:name=".user.me.SetPetNameActivity"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package feicui.edu.easyshop.user;
+package feicui.edu.easyshop.user.me;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,21 +13,23 @@ import android.widget.TextView;
 import feicui.edu.easyshop.MainActivity;
 import feicui.edu.easyshop.R;
 import feicui.edu.easyshop.user.login.LoginActivity;
+import feicui.edu.easyshop.user.me.MeDetailtActivity;
 
 /**
- * 我的界面
+ * 我的个人界面
  * Created by Administrator on 2016/11/16.
  */
 
 public class MeFragment extends Fragment implements View.OnClickListener {
 
-    private ImageView mIvUserIcon;
-    private TextView mTvUserInfo;
-    private TextView mTvShop;
-    private TextView mTvGoShop;
-    private TextView mTvLogin;
+    private ImageView mIvUserIcon; //用户头像
+    private TextView mTvUserInfo; //用户信息
+    private TextView mTvShop;  //我的商品
+    private TextView mTvGoShop; //上传商品
+    private TextView mTvLogin; //登录或注册文字
     private View mView;
     private MainActivity activity;
+
     public MeFragment(){
 
     }
@@ -60,12 +62,14 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(activity,MeDetailtActivity.class));
                 break;
             case R.id.tv_user_info:
-                startActivity(new Intent(activity,LoginActivity.class));
+                startActivity(new Intent(activity,MeDetailtActivity.class));
                 break;
             case R.id.tv_user_shop:
+                // TODO: 2016/11/24 我的商品待完成
                 startActivity(new Intent(activity,LoginActivity.class));
                 break;
             case R.id.tv_go_shop:
+                // TODO: 2016/11/24 上传商品待完成
                 startActivity(new Intent(activity,LoginActivity.class));
                 break;
         }

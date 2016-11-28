@@ -1,13 +1,11 @@
 package feicui.edu.easyshop;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +15,8 @@ import java.util.TimerTask;
 import feicui.edu.easyshop.mail.MailFragment;
 import feicui.edu.easyshop.message.MessageFragment;
 import feicui.edu.easyshop.shop.ShopFragment;
-import feicui.edu.easyshop.user.MeFragment;
+import feicui.edu.easyshop.user.me.MeFragment;
+import feicui.edu.easyshop.user.model.NativeCache;
 
 /**
  * 应用展示界面
@@ -54,7 +53,15 @@ public void init(){
     textViews[0].setSelected(true); //进入默认第一个textView为true
     mTvTitle.setText(textViews[0].getText()); //头条目文字默认为第一个碎片的文字
     mViewPager= (ViewPager) findViewById(R.id.vp_main);
-    mViewPager.setAdapter(unPagerAdapter);  //绑定适配器
+
+    Log.e("aaaaaaaaaa", "init: ===="+ NativeCache.getData());
+    Log.e("aaaaaaaaaa", "init: ===="+ NativeCache.getData().getUsername());
+     //判断用户是否登录，从而选择不同的适配器
+    if (NativeCache.getData().getName()==null) {
+        mViewPager.setAdapter(unPagerAdapter);  //绑定适配器
+    }else { //登录过
+        mViewPager.setAdapter(PagerAdapter);  //绑定适配器
+    }
 
     //添加页面改变监听
     mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -81,7 +88,7 @@ public void init(){
   }
 
     /**
-     * 碎片切换
+     * 碎片切换  未登录的
      */
     private FragmentStatePagerAdapter unPagerAdapter=
         new FragmentStatePagerAdapter(getSupportFragmentManager()) {
@@ -91,9 +98,9 @@ public void init(){
             case 0:
                 return new ShopFragment(); //市场
             case 1:
-                return new MessageFragment(); //消息
+                return new UnLoginFragment(); //消息(未登录)
             case 2:
-                return new MailFragment(); //通讯录
+                return new UnLoginFragment(); //通讯录(未登录)
             case 3:
                 return new MeFragment(); //我的
         }
@@ -105,6 +112,32 @@ public void init(){
         return 4;
     }
 };
+
+    /**
+     * 已登录的碎片切换
+     */
+    private FragmentStatePagerAdapter PagerAdapter=
+            new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+                @Override
+                public Fragment getItem(int position) { //通过角标获取子条目
+                    switch (position){
+                        case 0:
+                            return new ShopFragment(); //市场
+                        case 1:
+                            return new MessageFragment(); //消息（登录过）
+                        case 2:
+                            return new MailFragment(); //通讯录（登录过）
+                        case 3:
+                            return new MeFragment(); //我的
+                    }
+                    return null; //？？？？
+                }
+
+                @Override
+                public int getCount() { //获取碎片数目
+                    return 4;
+                }
+            };
 
 
     @Override

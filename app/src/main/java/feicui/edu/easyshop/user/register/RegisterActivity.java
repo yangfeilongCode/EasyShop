@@ -1,6 +1,7 @@
 package feicui.edu.easyshop.user.register;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,8 +15,11 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 
+import feicui.edu.easyshop.MainActivity;
 import feicui.edu.easyshop.R;
 import feicui.edu.easyshop.network.EasyShopClient;
+import feicui.edu.easyshop.user.login.LoginActivity;
+import feicui.edu.easyshop.user.model.*;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -105,12 +109,18 @@ public class RegisterActivity extends Activity implements TextWatcher, View.OnCl
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
+            //    NativeCache.clearAllData();
                     //拿到json字符串
                     String json = response.body().string();
                     Log.e("aaaaaaaaaa", "json== "+json );
-                    Results results = new Gson().fromJson(json, Results.class);
+                    LoginResults results = new Gson().fromJson(json, LoginResults.class);
 
                     if (results.getCode() == 1) { //判断成功的情况
+                       Data data=results.getData();
+                        NativeCache.setData(data);
+                        //注册成功调转主界面
+                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                        finish();//结束当前页面
 
                         Log.e("aaaaaaaaaa", "results=" + results.toString());
                         Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();

@@ -16,8 +16,12 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 
+import feicui.edu.easyshop.MainActivity;
 import feicui.edu.easyshop.R;
 import feicui.edu.easyshop.network.EasyShopClient;
+import feicui.edu.easyshop.user.model.Data;
+import feicui.edu.easyshop.user.model.LoginResults;
+import feicui.edu.easyshop.user.model.NativeCache;
 import feicui.edu.easyshop.user.register.RegisterActivity;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -84,7 +88,6 @@ public class LoginActivity extends Activity implements View.OnClickListener, Tex
 
                 }else if ((user.length()>3&&user.length()<10)&& (password.length()<16&&password.length()>5)){
                     login();
-                    Toast.makeText(this,"可执行",Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(this,"输入格式不正确",Toast.LENGTH_SHORT).show();
                 }
@@ -116,6 +119,12 @@ public class LoginActivity extends Activity implements View.OnClickListener, Tex
 
                 LoginResults results=new Gson().fromJson(json,LoginResults.class);
                 if (results.getCode()==1){
+                    Data data=results.getData(); //获取数据
+                    NativeCache.setData(data); //保存数据
+                    //登录成功调转主界面
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                     finish();//结束当前页面
+
                     Log.e("aaaaaaaaaa", "login_results=" + results.toString());
                     Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
                 }else {
